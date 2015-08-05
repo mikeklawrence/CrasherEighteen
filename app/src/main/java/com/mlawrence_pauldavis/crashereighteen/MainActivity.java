@@ -1,17 +1,24 @@
 package com.mlawrence_pauldavis.crashereighteen;
 
+import android.app.Activity;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i("CrasherEighteen", "Got SDK version " + Build.VERSION.SDK_INT);
+        if (Build.VERSION.SDK_INT == 18) {
+            throw new IllegalStateException("API Level 18 is not supported.");
+        }
     }
 
     @Override
